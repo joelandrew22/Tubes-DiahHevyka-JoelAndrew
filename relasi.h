@@ -6,16 +6,17 @@
 using namespace std;
 typedef struct elm_relasi *adddress_relasi;
 
-struct infotype_relasi{
-    int nim;
-    string nama;
-    int kode_mtkl;
-    string nama_mtkl;
-};
+//struct infotype_relasi{
+//    address_mhs nim;
+//    string nama;
+//    address_mtkl kode_mtkl;
+//    string nama_mtkl;
+//};
 
 struct elm_relasi{
+    address_mhs mhs;
+    address_mtkl mtkl;
     adddress_relasi next;
-    address_relasi prev;
     infotype_relasi info;
 };
 

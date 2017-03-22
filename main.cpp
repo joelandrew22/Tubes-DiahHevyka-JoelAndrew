@@ -1,9 +1,10 @@
 #include <iostream>
 #include "matkul.h"
+#include "mahasiswa.h"
 
 using namespace std;
 
-void menu(List_mtkl &LC){
+void menu(List_mtkl &LC, List_mhs &L){
     cout<<"PILIHAN MENU : "<<endl;
     cout<<"1.Masukan data mahasiswa"<<endl;
     cout<<"2.Masukan data matakuliah"<<endl;
@@ -22,9 +23,87 @@ void menu(List_mtkl &LC){
     int pil;
     cout<<"Masukan Pilihan : ";
     cin>>pil;
-    address_mtkl P;
+    address_mhs P;
+    address_mtkl Q;
     if(pil==1){
-            
+        cout<<"Pilih data ingin di masukkan di bagian mana "<<endl;
+            cout<<"1.Pertama"<<endl;
+            cout<<"2.Setelah"<<endl;
+            cout<<"3.Terakhir"<<endl;
+            int men;
+            cout<<"Masukan pilihan : ";
+            cin>>men;
+            mahasiswa Mahasiswa;
+            if(men==1){
+                        cout<<"Masukan NIM MAhasiswa : ";
+                        cin>>Mahasiswa.nim;
+                        cout<<"Masukan Nama Mahasiswa : ";
+                        cin>>Mahasiswa.nama;
+                        cout<<"Alamat Mahasiswa : ";
+                        cin>>Mahasiswa.alamat;
+                        cout<<"Jenis Kelamin : ";
+                        cin>>Mahasiswa.JK;
+                        cout<<"Jurusan : ";
+                        cin>>Mahasiswa.jurusan;
+                        cout<<"Kelas : ";
+                        cin>>Mahasiswa.kelas_mhs;
+                        address_mhs P = alokasi_mhs(Mahasiswa);
+                        insertFirst_mhs(L, P);
+                        cout<<endl;
+                        cout<<"Ketik '0': ";
+                        cin>>men;
+                        if(men==0){
+                            menu(LC,L);
+                        }
+            }
+            else if(men==2){
+                        cout<<"Masukan NIM MAhasiswa : ";
+                        cin>>Mahasiswa.nim;
+                        cout<<"Masukan Nama Mahasiswa : ";
+                        cin>>Mahasiswa.nama;
+                        cout<<"Alamat Mahasiswa : ";
+                        cin>>Mahasiswa.alamat;
+                        cout<<"Jenis Kelamin : ";
+                        cin>>Mahasiswa.JK;
+                        cout<<"Jurusan : ";
+                        cin>>Mahasiswa.jurusan;
+                        cout<<"Kelas : ";
+                        cin>>Mahasiswa.kelas_mhs;
+                        cout<<"Masukan setelah NIM : ";
+                        mahasiswa x;
+                        cin>>x.nim;
+                        address_mhs Prec, P;
+                        Prec = findElm_mhs(L, x);
+                        P = alokasi_mhs(Mahasiswa);
+                        insertAfter_mhs(Prec, P);
+                        cout<<endl;
+                          cin>>men;
+                        if(men==0){
+                            menu(LC,L);
+                        }
+            }
+            else if(men==3){
+                        cout<<"Masukan NIM MAhasiswa : ";
+                        cin>>Mahasiswa.nim;
+                        cout<<"Masukan Nama Mahasiswa : ";
+                        cin>>Mahasiswa.nama;
+                        cout<<"Alamat Mahasiswa : ";
+                        cin>>Mahasiswa.alamat;
+                        cout<<"Jenis Kelamin : ";
+                        cin>>Mahasiswa.JK;
+                        cout<<"Jurusan : ";
+                        cin>>Mahasiswa.jurusan;
+                        cout<<"Kelas : ";
+                        cin>>Mahasiswa.kelas_mhs;
+                        P = alokasi_mhs(Mahasiswa);
+                        insertLast_mhs(L, P);
+                        cout<<endl;
+                        cout<<"Ketik '0': ";
+                        cin>>men;
+                        if(men==0){
+                            menu(LC,L);
+                        }
+        }
             }
     else if(pil==2){
         cout<<"Pilih data ingin di masukkan di bagian mana "<<endl;
@@ -54,7 +133,7 @@ void menu(List_mtkl &LC){
                         cout<<"Ketik '0': ";
                         cin>>men;
                         if(men==0){
-                            menu(LC);
+                            menu(LC,L);
                         }
             }
             else if(men==2){
@@ -74,14 +153,14 @@ void menu(List_mtkl &LC){
                         int x;
                         cin>>x;
                         address_mtkl Prec_C, P;
-                        Prec_C = findElm(LC, x); 
+                        Prec_C = findElm(LC, x);
                         P = alokasi(Matakuliah);
                         insertAfter(LC, Prec_C, P);
                         cout<<endl;
                           cin>>men;
                         if(men==0){
-                            menu(LC);
-                        }                                                          
+                            menu(LC,L);
+                        }
             }
             else if(men==3){
                         cout<<"Masukan Kode Matakuliah : ";
@@ -96,18 +175,25 @@ void menu(List_mtkl &LC){
                         cin>>Matakuliah.ruangan;
                         cout<<"Masukan Jam : ";
                         cin>>Matakuliah.jam;
-                        P = alokasi(Matakuliah);
-                        insertLast(LC, P);
+                        Q = alokasi(Matakuliah);
+                        insertLast(LC, Q);
                         cout<<endl;
                         cout<<"Ketik '0': ";
                         cin>>men;
                         if(men==0){
-                            menu(LC);
+                            menu(LC,L);
                         }
         }
     }
     else if(pil==3){
-
+        printInfo_mhs(L);
+            cout<<endl;
+            cout<<"Ketik '0': ";
+            int men;
+            cin>>men;
+            if(men==0){
+                menu(LC,L);
+            }
     }
     else if(pil==4){
         printInfo(LC);
@@ -116,15 +202,16 @@ void menu(List_mtkl &LC){
             int men;
             cin>>men;
             if(men==0){
-                menu(LC);
-            }    
+                menu(LC,L);
+            }
     }
 }
 
 int main()
 {
     List_mtkl LC;
-    menu(LC);
+    List_mhs L;
+    menu(LC,L);
 
     return 0;
 }

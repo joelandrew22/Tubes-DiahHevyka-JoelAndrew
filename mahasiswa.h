@@ -10,9 +10,8 @@ struct mahasiswa{
     string alamat;
     string JK;
     string jurusan;
-    string kelas;
+    string kelas_mhs;
 };
-
 
 struct elmlist_mhs{
     mahasiswa info;
@@ -24,16 +23,16 @@ struct List_mhs{
 };
 
 void createList_mhs(List_mhs &L);
-address alokasi_mhs(mahasiswa x);
-void dealokasi_mhs(address &P);
+address_mhs alokasi_mhs(mahasiswa x);
+void dealokasi_mhs(address_mhs &P);
 void insertFirst_mhs(List_mhs &L, address_mhs P);
 void insertLast_mhs(List_mhs &L, address_mhs P);
 address_mhs findElm_mhs(List_mhs L, mahasiswa x);
 void deleteFirst_mhs(List_mhs &L, address_mhs &P);
-void deleteLast_mhs(List_mhs &L, address &P);
+void deleteLast_mhs(List_mhs &L, address_mhs &P);
 void printInfo_mhs(List_mhs L);
-void insertAfter_mhs(address Prec, address_mhs P);
-void deleteAfter_mhs(address Prec, address_mhs &P);
+void insertAfter_mhs(address_mhs Prec, address_mhs P);
+void deleteAfter_mhs(address_mhs Prec, address_mhs &P);
 
 #endif // MAHASISWA_H_INCLUDED
 

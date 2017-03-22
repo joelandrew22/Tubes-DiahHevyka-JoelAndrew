@@ -6,19 +6,24 @@ void createList_mhs(List_mhs &L)
 {
     L.First=NULL;
 }
-address alokasi_mhs(mahasiswa x)
+address_mhs alokasi_mhs(mahasiswa x)
 {
-    address P;
+    address_mhs P;
     P = new elmlist_mhs;
-    P->info = x;
+    P->info.nim = x.nim;
+    P->info.nama = x.nama;
+    P->info.alamat = x.alamat;
+    P->info.JK = x.JK;
+    P->info.jurusan = x.jurusan;
+    P->info.kelas_mhs = x.kelas_mhs;
     P->next = NULL;
 
 }
-void dealokasi_mhs(address &P)
+void dealokasi_mhs(address_mhs &P)
 {
     delete P;
 }
-void insertFirst_mhs(List_mhs &L, address P)
+void insertFirst_mhs(List_mhs &L, address_mhs P)
 {
     if(L.First == NULL){
         L.First = P;
@@ -27,32 +32,32 @@ void insertFirst_mhs(List_mhs &L, address P)
         L.First = P;
     }
 }
-void insertLast_mhs(List_mhs &L, address P)
+void insertLast_mhs(List_mhs &L, address_mhs P)
 {
     if(L.First == NULL){
         L.First = P;
     }else{
-        address q = L.First;
+        address_mhs q = L.First;
         while(q->next != NULL){
             q=q->next;
         }
         q->next = P;
     }
 }
-address findElm_mhs(List_mhs L, mahasiswa x)
+address_mhs findElm_mhs(List_mhs L, mahasiswa x)
 {
-    address P;
+    address_mhs P;
     if(L.First == NULL){
         P = NULL;
     }else{
         P = L.First;
-        while((P != NULL)  && P->info.nama != x.nama){
+        while((P != NULL)  && P->info.nim != x.nim){
             P=P->next;
         }
     }
     return P;
 }
-void deleteFirst_mhs(List_mhs &L, address &P)
+void deleteFirst_mhs(List_mhs &L, address_mhs &P)
 {
     if(L.First == NULL){
         cout<<"List kososng"<<endl;
@@ -63,7 +68,7 @@ void deleteFirst_mhs(List_mhs &L, address &P)
 
     }
 }
-void deleteLast_mhs(List_mhs &L, address &P)
+void deleteLast_mhs(List_mhs &L, address_mhs &P)
 {
     if(L.First == NULL){
         cout<<"List kosong"<<endl;
@@ -73,7 +78,7 @@ void deleteLast_mhs(List_mhs &L, address &P)
             L.First = NULL;
 
         }else{
-            address q=P;
+            address_mhs q=P;
             while(q->next->next != NULL){
                 q=q->next;
             }
@@ -88,25 +93,25 @@ void printInfo_mhs(List_mhs L)
     if(L.First==NULL){
         cout << "List kosong" <<endl;
     }else{
-        address P = L.First;
+        address_mhs P = L.First;
         while(P!=NULL){
             cout << P->info.nim <<endl;
             cout << P->info.nama <<endl;
             cout << P->info.JK <<endl;
             cout << P->info.jurusan <<endl;
-            cout << P->info.kelas <<endl;
+            cout << P->info.kelas_mhs <<endl;
             cout << P->info.alamat <<endl;
             P=P->next;
         }
         cout << endl;
     }
 }
-void insertAfter_mhs(address Prec, address P)
+void insertAfter_mhs(address_mhs Prec, address_mhs P)
 {
     P->next = Prec->next;
     Prec->next = P;
 }
-void deleteAfter_mhs(address Prec, address &P)
+void deleteAfter_mhs(address_mhs Prec, address_mhs &P)
 {
     P = Prec->next;
     Prec->next = P->next;

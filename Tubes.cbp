@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="mahasiswa.cpp" />
+		<Unit filename="mahasiswa.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="matkul.cpp" />
+		<Unit filename="matkul.h" />
+		<Unit filename="relasi.cpp" />
+		<Unit filename="relasi.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
