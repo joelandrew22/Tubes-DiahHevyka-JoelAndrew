@@ -4,7 +4,7 @@
 #include "mahasiswa.h"
 
 using namespace std;
-typedef struct elm_relasi *adddress_relasi;
+typedef struct elm_relasi *address_relasi;
 
 //struct infotype_relasi{
 //    address_mhs nim;
@@ -16,11 +16,10 @@ typedef struct elm_relasi *adddress_relasi;
 struct elm_relasi{
     address_mhs mhs;
     address_mtkl mtkl;
-    adddress_relasi next;
-    infotype_relasi info;
+    address_relasi next;
 };
 
-void insertFirstRelasi(address_mhs P, address_relasi L, infotype_relasi R2);
+void insertFirstRelasi(address_mhs P, address_relasi L);
 address_relasi alokasiRelasi( infotype_relasi C);
 void dealokasiRelasi(adddress_relasi &P);
 address_relasi findElmRelasi(address_mhs L, int x);
