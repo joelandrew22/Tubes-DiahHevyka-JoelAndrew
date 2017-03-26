@@ -8,15 +8,9 @@ using namespace std;
 address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl)
 {
     addrss_relasi R = new elm_relasi;
-    info(R).mhs = mhs;
-    info(R).mtkl = mtkl;
-    next(R) = NULL;
+    R->info=x;
+    R->next= NULL;
     return R;
-}
-
-void dealokasiRelasi(adddress_relasi &P)
-{
-    delete P;
 }
 
 void insertRelasi(address_mhs P, address_relasi L)

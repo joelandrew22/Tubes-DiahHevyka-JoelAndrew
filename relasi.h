@@ -21,7 +21,6 @@ struct elm_relasi{
 
 void insertFirstRelasi(address_mhs P, address_relasi L);
 address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl);
-void dealokasiRelasi(adddress_relasi &P);
 address_relasi findElmRelasi(address_mhs L, int x);
 void printInfoRelasi(List_mhs P, List_mtkl L);
 void deleteRelasi(address_mhs P, address_mtkl L);
