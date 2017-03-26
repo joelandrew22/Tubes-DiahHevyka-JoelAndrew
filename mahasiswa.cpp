@@ -25,12 +25,8 @@ void dealokasi_mhs(address_mhs &P)
 }
 void insertFirst_mhs(List_mhs &L, address_mhs P)
 {
-    if(L.First == NULL){
         L.First = P;
-    }else{
-        P->next = L.First;
-        L.First = P;
-    }
+        P->next = NULL;
 }
 void insertLast_mhs(List_mhs &L, address_mhs P)
 {
@@ -90,18 +86,19 @@ void deleteLast_mhs(List_mhs &L, address_mhs &P)
 }
 void printInfo_mhs(List_mhs L)
 {
+    address_mhs P;
+    P = L.First;
     if(L.First==NULL){
         cout << "List kosong" <<endl;
     }else{
-        address_mhs P = L.First;
-        while(P!=NULL){
+        while(P != NULL){
             cout << P->info.nim <<endl;
             cout << P->info.nama <<endl;
             cout << P->info.JK <<endl;
             cout << P->info.jurusan <<endl;
             cout << P->info.kelas_mhs <<endl;
             cout << P->info.alamat <<endl;
-            P=P->next;
+            P = P->next;
         }
         cout << endl;
     }

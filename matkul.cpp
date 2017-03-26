@@ -17,7 +17,7 @@ address_mtkl alokasi(matakuliah x){
     P->info.jam = x.jam;
     P->next = NULL;
     P->Prev = NULL;
-    return P; 
+    return P;
 }
 
 void dialokasi(address_mtkl &P){
@@ -53,7 +53,7 @@ void insertAfter(List_mtkl &LC, address_mtkl Prec_C, address_mtkl P){
             P->next = Prec_C->next;
             P->Prev = Prec_C;
             Prec_C->next->Prev = P;
-            Prec_C->next = P; 
+            Prec_C->next = P;
         }
     }else{
         cout<<"Gagal insert after, Prec NULL"<<endl;
@@ -110,7 +110,7 @@ void deleteAfter(List_mtkl &LC, address_mtkl Prec_C, address_mtkl &P){
     }
 }
 
-address_mtkl findElm(List_mtkl LC, int x){
+address_mtkl findElm(List_mtkl &LC, int x){
     address_mtkl P;
     P = LC.First;
     if (LC.First==NULL)
