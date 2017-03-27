@@ -5,7 +5,9 @@
 
 using namespace std;
 typedef struct elm_relasi *address_relasi;
-
+struct List_relasi{
+    address_relasi First;
+};
 //struct infotype_relasi{
 //    address_mhs nim;
 //    string nama;
@@ -19,7 +21,7 @@ struct elm_relasi{
     address_relasi next;
 };
 
-void insertFirstRelasi(address_mhs P, address_relasi L);
+void insertFirstRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r);
 address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl);
 address_relasi findElmRelasi(address_mhs L, int x);
 void printInfoRelasi(List_mhs P, List_mtkl L);

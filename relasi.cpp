@@ -5,7 +5,12 @@
 #include "matkul.h"
 using namespace std;
 
-address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl)
+void createList_relasi(List_relasi &R)
+{
+    L.First=NULL;
+}
+
+address_relasi alokasiRelasi(relasi x)
 {
     addrss_relasi R = new elm_relasi;
     R->info=x;
@@ -13,7 +18,7 @@ address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl)
     return R;
 }
 
-void insertRelasi(address_mhs P, address_relasi L)
+void insertRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r)
 {
     string mhs,mtkl;
     address_mhs mhs;
@@ -23,7 +28,7 @@ void insertRelasi(address_mhs P, address_relasi L)
     printInfo(LC);
 
     cout<<"RELASIKAN DATA "<<endl;
-    cout<<"NIM Mahasiswa        = ";cin>>nip;
+    cout<<"NIM Mahasiswa        = ";cin>>nim;
     cout<<"direlasikan dengan......"<<endl;
     mhs = findElm_mhs(L,nim);
     if(mhs!=NULL) {
@@ -40,7 +45,7 @@ void insertRelasi(address_mhs P, address_relasi L)
 
     }
     else {
-        cout<<"KODE MATAKULIAH TIDAK ADA!!"<<endl;
+        cout<<"KODE MAHASISWA TIDAK ADA!!"<<endl;
 
     }
 }
