@@ -6,25 +6,22 @@
 using namespace std;
 typedef struct elm_relasi *address_relasi;
 struct List_relasi{
-    address_relasi First;
+    address_relasi FirstR;
 };
-//struct infotype_relasi{
-//    address_mhs nim;
-//    string nama;
-//    address_mtkl kode_mtkl;
-//    string nama_mtkl;
-//};
 
 struct elm_relasi{
-    address_mhs mhs;
-    address_mtkl mtkl;
-    address_relasi next;
+    relasi infoR;
+    address_relasi nextR;
 };
 
-void insertFirstRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r);
+void createList_relasi(List_relasi &R);
+void isiRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r);
 address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl);
-address_relasi findElmRelasi(address_mhs L, int x);
-void printInfoRelasi(List_mhs P, List_mtkl L);
-void deleteRelasi(address_mhs P, address_mtkl L);
+address_relasi findElmRelasi(address_relasi R, address_mhs mhs, address_mtkl mtkl);
+void insertFirst_relasi(List_relasi &R, address_relasi P);
+void insertLast_relasi(List_relasi &R, address_relasi P);
+void insertAfter_relasi(List_relasi &R, address_relasi prec, address_relasi P);
+void printInfoRelasi(List_relasi R, address_mhs mhs, address_mtkl mtkl);
+//void deleteRelasi(address_mhs P, address_mtkl L);
 
 #endif // RELASI_H_INCLUDED
