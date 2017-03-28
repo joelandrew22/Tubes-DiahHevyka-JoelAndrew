@@ -5,23 +5,36 @@
 
 using namespace std;
 typedef struct elm_relasi *address_relasi;
+struct relasi{
+    int mhs;
+    int mtkl;
+};
 struct List_relasi{
     address_relasi FirstR;
 };
 
 struct elm_relasi{
-    relasi infoR;
-    address_relasi nextR;
+    address_relasi next;
+    address_mhs parent;
+    address_mtkl child;
 };
 
-void createList_relasi(List_relasi &R);
-void isiRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r);
-address_relasi alokasiRelasi(address_mhs mhs, address_mtkl mtkl);
-address_relasi findElmRelasi(address_relasi R, address_mhs mhs, address_mtkl mtkl);
-void insertFirst_relasi(List_relasi &R, address_relasi P);
-void insertLast_relasi(List_relasi &R, address_relasi P);
-void insertAfter_relasi(List_relasi &R, address_relasi prec, address_relasi P);
-void printInfoRelasi(List_relasi R, address_mhs mhs, address_mtkl mtkl);
-//void deleteRelasi(address_mhs P, address_mtkl L);
+void deletebyrelasi(List_relasi &R, address_relasi &P);
+void deleterelasi(List_relasi &R, address_relasi &P);
+address_relasi alokasiRelasi(address_mhs P, address_mtkl C);
+address_relasi findElm_R(List_relasi R, address_mhs P, address_mtkl C);
+void dealokasi(address_relasi &P);
+void printInfo(List_relasi R);
+void createList(List_relasi &R);
+void insertFirst(List_relasi &R, address_relasi P);
+void insertLast(List_relasi &R, address_relasi P);
+void insertAfter(List_relasi R, address_relasi &Prec, address_relasi &P);
+void deleteFirst(List_relasi &R, address_relasi &P);
+void deleteLast(List_relasi &R, address_relasi&P);
+void deleteAfter(address_relasi Prec, address_relasi &P);
+address_relasi searchrelasi(List_relasi R, address_mhs Q, address_mtkl Z);
+address_relasi searchrelasiparent(List_relasi R, address_mhs &P);
+address_relasi searchrelasichild(List_relasi R, address_mtkl P);
+void sortrelasi(List_relasi &R);
 
 #endif // RELASI_H_INCLUDED

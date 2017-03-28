@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1490166662 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.cpp
+1490513298 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.cpp
 	<iostream>
 	"mahasiswa.h"
 
@@ -13,7 +13,7 @@
 1490165273 c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\matkul.h
 	<iostream>
 
-1490170156 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\matkul.cpp
+1490513202 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\matkul.cpp
 	<iostream>
 	"matkul.h"
 
