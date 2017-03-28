@@ -100,6 +100,8 @@ void printInfo_mhs(List_mhs L)
             cout << "Jurusan Mahasiswa :"<<P->info.jurusan <<endl;
             cout << "Kelas Mahasiswa   :"<<P->info.kelas_mhs <<endl;
             cout << "Alamat Mahasiswa  :"<<P->info.alamat <<endl;
+            cout<<endl;
+            cout<<endl;
             P=P->next;
         }
         cout << endl;

@@ -22,8 +22,11 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
     cout<<"13.Sorting Relasi Penggabungan"<<endl;
     cout<<"0.Menu utama"<<endl;
     int pil;
+    cout<<endl;
     cout<<"Masukan Pilihan : ";
     cin>>pil;
+    cout<<endl;
+    cout<<endl;
     mahasiswa Mahasiswa;
     int men,x,xx;
     address_mtkl PC = NULL;
@@ -62,7 +65,8 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
             }
             if (Q!=NULL)
             {
-                cout<<"kode sudah ada";
+                cout<<endl;
+                cout<<"NIM sudah digunakan";
             }
             else
             {
@@ -97,17 +101,17 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
     else if(pil==2){
             address_mtkl Q;
             matakuliah Matakuliah;
-            cout<<"Masukan Kode Matakuliah : ";
+            cout<<"Masukan Kode Matakuliah  : ";
             cin>>Matakuliah.kodematkul;
-            cout<<"Masukan Nama Dosen : ";
+            cout<<"Masukan Nama Dosen       : ";
             cin>>Matakuliah.namapengajar;
-            cout<<"Banyak SKS : ";
+            cout<<"Banyak SKS               : ";
             cin>>Matakuliah.sks;
-            cout<<"Masukan Nama Matakuliah : ";
+            cout<<"Masukan Nama Matakuliah  : ";
             cin>>Matakuliah.namamatkul;
-            cout<<"Masukan ruangan : ";
+            cout<<"Masukan ruangan          : ";
             cin>>Matakuliah.ruangan;
-            cout<<"Masukan Jam : ";
+            cout<<"Masukan Jam              : ";
             cin>>Matakuliah.jam;
             address_mtkl P;
             if(LC.First == NULL){
@@ -122,7 +126,8 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
             }
             if (Q!=NULL)
             {
-                cout<<"kode sudah ada";
+                cout<<endl;
+                cout<<"Kode Matakuliah sudah digunakan";
             }
             else
             {
@@ -199,6 +204,7 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
         cout << "Kelas Mahasiswa   :"<<P->info.kelas_mhs <<endl;
         cout << "Alamat Mahasiswa  :"<<P->info.alamat <<endl;
         }else{
+            cout<<endl;
             cout<<"Data tidak ditemuka";
         }
     }
@@ -222,14 +228,15 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
             P=P->next;
         }
         if(P!=NULL){
-        cout<<"Data di temukan : "<<endl;
-        cout<<"Kode Matakuliah : "<<info(P).kodematkul<<endl;
-        cout<<"Nama Doesen : "<<info(P).namapengajar<<endl;
-        cout<<"Banyak SKS : "<<info(P).sks<<endl;
-        cout<<"Nama Matakuliah: "<<info(P).namamatkul<<endl;
-        cout<<"Ruangan : "<<info(P).ruangan<<endl;
-        cout<<"Jam masuk : "<<info(P).jam<<endl;
+        cout<<"Data di temukan  : "<<endl;
+        cout<<"Kode Matakuliah  : "<<info(P).kodematkul<<endl;
+        cout<<"Nama Doesen      : "<<info(P).namapengajar<<endl;
+        cout<<"Banyak SKS       : "<<info(P).sks<<endl;
+        cout<<"Nama Matakuliah  : "<<info(P).namamatkul<<endl;
+        cout<<"Ruangan          : "<<info(P).ruangan<<endl;
+        cout<<"Jam masuk        : "<<info(P).jam<<endl;
     }else {
+        cout<<endl;
         cout<<"Data tidak ditemukan";
     }
     }
@@ -243,9 +250,9 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
     }
     else if(pil==7){
             cout<<"Merelasikan MAhasiswa dengan MAtakuliah yang di ambil"<<endl;
-            cout<<"Masukkan NIM: ";
+            cout<<"Masukkan NIM             : ";
             cin>>xx;
-            cout<<"Masukkan Kode Matkul: :";
+            cout<<"Masukkan Kode Matkul     :";
             cin>>x;
             
             address_mtkl P;
@@ -304,9 +311,9 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
     }
     else if(pil == 9){
         int k,l;
-        cout<<"Masukan Nim Mahasiswa : ";
+        cout<<"Masukan Nim Mahasiswa    : ";
         cin>>k;
-        cout<<"Masukan Kode Matakuliah : ";
+        cout<<"Masukan Kode Matakuliah  : ";
         cin>>l;
         address_relasi DR;
         if(R.FirstR == NULL){
@@ -316,7 +323,7 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
                 while(( DR!= NULL)  && (DR->child->info.kodematkul != l || DR->parent->info.nim != k)){
                     DR=DR->next;
                 }
-                cout <<"NIM Mahasiswa      : "<<DR->parent->info.nim <<endl;
+                cout <<"NIM Mahasiswa       : "<<DR->parent->info.nim <<endl;
                 cout<<"Nama Mahasiswa       : "<<DR->parent->info.nama<<endl;
                 cout << "Kode Matakuliah    : "<<DR->child->info.kodematkul <<endl;
                 cout<<"Nama Matakuliah      : "<<DR->child->info.namamatkul<<endl;
@@ -331,9 +338,9 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
     }
     else if(pil == 10){
         int k,l;
-        cout<<"Masukan Nim Mahasiswa : ";
+        cout<<"Masukan Nim Mahasiswa    : ";
         cin>>k;
-        cout<<"Masukan Kode Matakuliah : ";
+        cout<<"Masukan Kode Matakuliah  : ";
         cin>>l;
         address_relasi DR;
         if(R.FirstR == NULL){

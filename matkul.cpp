@@ -135,12 +135,14 @@ void printInfo(List_mtkl LC){
     }
     else{
         while(P != NULL){
-            cout<<"Kode Matakuliah : "<<info(P).kodematkul<<endl;
-            cout<<"Nama Doesen : "<<info(P).namapengajar<<endl;
-            cout<<"Banyak SKS : "<<info(P).sks<<endl;
-            cout<<"Nama Matakuliah: "<<info(P).namamatkul<<endl;
-            cout<<"Ruangan : "<<info(P).ruangan<<endl;
-            cout<<"Jam masuk : "<<info(P).jam<<endl;
+            cout<<"Kode Matakuliah  : "<<info(P).kodematkul<<endl;
+            cout<<"Nama Doesen      : "<<info(P).namapengajar<<endl;
+            cout<<"Banyak SKS       : "<<info(P).sks<<endl;
+            cout<<"Nama Matakuliah  : "<<info(P).namamatkul<<endl;
+            cout<<"Ruangan          : "<<info(P).ruangan<<endl;
+            cout<<"Jam masuk        : "<<info(P).jam<<endl;
+            cout<<endl;
+            cout<<endl;
             P = P->next;
         }
         cout<<endl;

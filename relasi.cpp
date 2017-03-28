@@ -102,6 +102,8 @@ void printInfo_R(List_relasi R){
             cout<<"Nama Mahasiswa       : "<<P->parent->info.nama<<endl;
             cout << "Kode Matakuliah    : "<<P->child->info.kodematkul <<endl;
             cout<<"Nama Matakuliah      : "<<P->child->info.namamatkul<<endl;
+            cout<<endl;
+            cout<<endl;
             P=P->next;
         }
         cout << endl;
