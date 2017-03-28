@@ -14,6 +14,7 @@ struct List_relasi{
 };
 
 struct elm_relasi{
+    relasi info;
     address_relasi next;
     address_mhs parent;
     address_mtkl child;

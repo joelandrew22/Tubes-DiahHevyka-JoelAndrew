@@ -28,6 +28,13 @@ void dealokasi(address_relasi &P)
     delete P;
 }
 
+void deleterelasi(List_relasi &R, address_relasi &P)
+{
+    child(P) = nil;
+    parent(P) = nil;
+    dealokasi(P);
+}
+
 void insertFirst(List_relasi &R, address_relasi P)
 {
     if (R.FirstR == NULL)
@@ -89,15 +96,116 @@ C)
     return NULL;
 }
 
-void deletebyrelasi(List_relasi &R, address_relasi &P);
-void deleterelasi(List_relasi &R, address_relasi &P);
-void printInfo(List_relasi R);
-void deleteFirst(List_relasi &R, address_relasi &P);
-void deleteLast(List_relasi &R, address_relasi&P);
-void deleteAfter(address_relasi Prec, address_relasi &P);
-address_relasi searchrelasi(List_relasi R, address_mhs Q,
+void deletebyrelasi(List_relasi &R, address_relasi &P)
+{
+    address_relasi Q;
+    if(R.FirstR != NULL)
+    {
+        if(P == R.FirstR)
+        {
+            deleteFirst(R,P);
+        }
+        else
+        {
+            Q = R.FirstR;
+            while(Q->next != P)
+                Q = Q->next;
+        }
+        if(Q->next == P && P->next == nil)
+        {
+            deleteLast(L,P);
+        }
+        else
+        {
+            Q->next = P->next;
+            P->next = nil;
+        }
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
+    }
+}
 
-address_mtkl Z);
-address_relasi searchrelasiparent(List_relasi R, address_mhs &P);
-address_relasi searchrelasichild(List_relasi R, address_mtkl P);
-void sortrelasi(List_relasi &R);
+void printInfo(List_relasi R)
+{
+
+}
+void deleteFirst(List_relasi &R, address_relasi &P)
+{
+    if(R.FirstR != NULL)
+    {
+        if(next->R.FirstR == NULL)
+        {
+            P = R.FirstR;
+            R.FirstR = NULL;
+        }
+        else
+        {
+            P = R.FirstR;
+            R.FirstR = P->next;
+            P->next = NULL;
+        }
+    }
+}
+void deleteLast(List_relasi &R, address_relasi&P)
+{
+    if(R.FirstR != NULL)
+    {
+        if(next->R.FirstR == NULL)
+        {
+            deleteFirst(R,P);
+        }
+        else
+        {
+            address_relasi Q = R.FirstR;
+            while(Q->next->next) != NULL)
+            {
+                Q = Q->next;
+            }
+            P = Q->next;
+            Q->next = NULL;
+        }
+    }
+}
+void deleteAfter(address_relasi Prec, address_relasi &P)
+{
+    List_relasi R;
+    if(R.FirstR!= NULL)
+    {
+        if(P->next == NULL)
+        {
+            deleteLast(R,P);
+        }
+        else if (P == R.FirstR)
+        {
+            deleteFirst(R,P);
+        }
+        else
+        {
+            Prec->next = P->next;
+            P->next = NULL;
+        }
+
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
+    }
+}
+address_relasi searchrelasi(List_relasi R, address_mhs Q,address_mtkl Z)
+{
+
+}
+address_relasi searchrelasiparent(List_relasi R, address_mhs &P)
+{
+
+}
+address_relasi searchrelasichild(List_relasi R, address_mtkl P)
+{
+
+}
+void sortrelasi(List_relasi &R)
+{
+
+}

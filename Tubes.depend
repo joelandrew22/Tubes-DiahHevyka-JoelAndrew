@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1490513298 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.cpp
+1490675055 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.cpp
 	<iostream>
 	"mahasiswa.h"
 
-1490166152 c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.h
+1490675059 c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\mahasiswa.h
 
-1490166919 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\main.cpp
+1490675448 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\main.cpp
 	<iostream>
 	"matkul.h"
 	"mahasiswa.h"
+	"relasi.h"
 
 1490165273 c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\matkul.h
 	<iostream>
@@ -17,5 +18,13 @@
 	<iostream>
 	"matkul.h"
 
-1490170079 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\relasi.cpp
+1490675003 source:c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\relasi.cpp
+	<iostream>
+	"relasi.h"
+	"mahasiswa.h"
+	"matkul.h"
+
+1490676761 c:\users\windows 8.1\documents\github\tubes-diahhevyka-joelandrew\relasi.h
+	"matkul.h"
+	"mahasiswa.h"
 

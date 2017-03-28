@@ -55,10 +55,7 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
         address_mhs P;
         P =  alokasi_mhs(Mahasiswa);
         address_mhs Q;
-            if(L.First == NULL){
-                insertFirst_mhs(L,P);
-            }
-            else if(P->info.nim < L.First->info.nim ){
+            if(L.First == NULL || P->info.nim < L.First->info.nim ){
                 insertFirst_mhs(L,P);
             }else{
                 Q = L.First;
@@ -214,7 +211,7 @@ void menu( List_relasi &R, List_mtkl &LC, List_mhs &L){
             cout<<"Masukkan Kode Matkul: :";
             cin>>x;
             carip = findElm_mhs(L,xx);
-            caric = findElm_mtkl(LC,x);
+            caric = findElm(LC,x);
             if(carip != NULL && caric != NULL)
             {
                 PR = alokasiRelasi(carip,caric);
