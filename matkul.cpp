@@ -20,14 +20,14 @@ address_mtkl alokasi(matakuliah x){
     return P; 
 }
 
-void dialokasi(address_mtkl &P){
+void dialokasi_mtkl(address_mtkl &P){
     delete P;
 }
 
 void insertFirst(List_mtkl &LC, address_mtkl P){
     if (LC.First == NULL){
         LC.First = P;
-        LC.First = P;
+        LC.Last = P;
     }else{
         P->next = LC.First;
         LC.First->Prev = P;

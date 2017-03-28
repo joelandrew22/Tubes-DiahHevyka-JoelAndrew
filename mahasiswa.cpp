@@ -17,45 +17,46 @@ address_mhs alokasi_mhs(mahasiswa x)
     P->info.jurusan = x.jurusan;
     P->info.kelas_mhs = x.kelas_mhs;
     P->next = NULL;
-
 }
+
 void dealokasi_mhs(address_mhs &P)
 {
     delete P;
 }
 void insertFirst_mhs(List_mhs &L, address_mhs P)
 {
-    if(L.First == NULL){
-        L.First = P;
-    }else{
-        P->next = L.First;
-        L.First = P;
-    }
+        if(L.First == NULL){L.First = P;
+        P->next = NULL;
+        }else{
+            P->next = L.First;
+            L.First = P;
+        }
 }
 void insertLast_mhs(List_mhs &L, address_mhs P)
 {
     if(L.First == NULL){
-        L.First = P;
+        insertFirst_mhs(L,P);
     }else{
-        address_mhs q = L.First;
-        while(q->next != NULL){
-            q=q->next;
+        address_mhs Q = L.First;
+        while(Q->next != NULL){
+            Q=Q->next;
         }
-        q->next = P;
+        Q->next = P;
+        P->next = NULL;
     }
 }
-address_mhs findElm_mhs(List_mhs L, mahasiswa x)
+address_mhs findElm_mhs(List_mhs L, int x)
 {
-    address_mhs P;
+    address_mhs Q;
     if(L.First == NULL){
-        P = NULL;
+        Q = NULL;
     }else{
-        P = L.First;
-        while((P != NULL)  && P->info.nim != x.nim){
-            P=P->next;
+        Q = L.First;
+        while((Q != NULL)  && Q->info.nim != x){
+            Q=Q->next;
         }
     }
-    return P;
+    return Q;
 }
 void deleteFirst_mhs(List_mhs &L, address_mhs &P)
 {
@@ -65,7 +66,6 @@ void deleteFirst_mhs(List_mhs &L, address_mhs &P)
         P = L.First;
         L.First = P->next;
         P->next = NULL;
-
     }
 }
 void deleteLast_mhs(List_mhs &L, address_mhs &P)
@@ -84,7 +84,6 @@ void deleteLast_mhs(List_mhs &L, address_mhs &P)
             }
             P = q->next;
             q->next = NULL;
-
         }
     }
 }
@@ -95,21 +94,21 @@ void printInfo_mhs(List_mhs L)
     }else{
         address_mhs P = L.First;
         while(P!=NULL){
-            cout << P->info.nim <<endl;
-            cout << P->info.nama <<endl;
-            cout << P->info.JK <<endl;
-            cout << P->info.jurusan <<endl;
-            cout << P->info.kelas_mhs <<endl;
-            cout << P->info.alamat <<endl;
+            cout << "NIM Mahasiswa     :"<<P->info.nim <<endl;
+            cout << "Nama Mahasiswa    :"<<P->info.nama <<endl;
+            cout << "Jenis Kelamin     :"<<P->info.JK <<endl;
+            cout << "Jurusan Mahasiswa :"<<P->info.jurusan <<endl;
+            cout << "Kelas Mahasiswa   :"<<P->info.kelas_mhs <<endl;
+            cout << "Alamat Mahasiswa  :"<<P->info.alamat <<endl;
             P=P->next;
         }
         cout << endl;
     }
 }
-void insertAfter_mhs(address_mhs Prec, address_mhs P)
+void insertAfter_mhs(List_mhs &L,address_mhs Q, address_mhs P)
 {
-    P->next = Prec->next;
-    Prec->next = P;
+    P->next = Q->next;
+    Q->next = P;
 }
 void deleteAfter_mhs(address_mhs Prec, address_mhs &P)
 {

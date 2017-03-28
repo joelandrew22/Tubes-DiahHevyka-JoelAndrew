@@ -33,9 +33,9 @@ struct List_mtkl{
 };
 
 
-void cerateList(List_mtkl &LC);
+void createList(List_mtkl &LC);
 address_mtkl alokasi(matakuliah x);
-void dealokasi(address_mtkl &P);
+void dealokasi_mtkl(address_mtkl &P);
 void insertFirst(List_mtkl &LC, address_mtkl P);
 void insertLast(List_mtkl &LC, address_mtkl P);
 void insertAfter(List_mtkl &LC, address_mtkl Prec_C, address_mtkl P);

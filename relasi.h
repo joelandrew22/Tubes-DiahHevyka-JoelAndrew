@@ -4,27 +4,35 @@
 #include "mahasiswa.h"
 
 using namespace std;
-typedef struct elm_relasi *adddress_relasi;
+typedef struct elm_relasi *address_relasi;
 
-//struct infotype_relasi{
-//    address_mhs nim;
-//    string nama;
-//    address_mtkl kode_mtkl;
-//    string nama_mtkl;
-//};
-
-struct elm_relasi{
-    address_mhs mhs;
-    address_mtkl mtkl;
-    adddress_relasi next;
-    infotype_relasi info;
+struct List_relasi{
+    address_relasi FirstR;
 };
 
-void insertFirstRelasi(address_mhs P, address_relasi L, infotype_relasi R2);
-address_relasi alokasiRelasi( infotype_relasi C);
-void dealokasiRelasi(adddress_relasi &P);
-address_relasi findElmRelasi(address_mhs L, int x);
-void printInfoRelasi(List_mhs P, List_mtkl L);
-void deleteRelasi(address_mhs P, address_mtkl L);
+struct elm_relasi{
+    address_relasi next;
+    address_mhs parent;
+    address_mtkl child;
+};
+
+void deletebyrelasi(List_relasi &R, address_relasi &P);
+void deleterelasi(List_relasi &R, address_relasi &P);
+address_relasi alokasiRelasi(address_mhs P, address_mtkl C);
+address_relasi findElm_R(List_relasi R, address_mhs P, address_mtkl C);
+void dealokasi(address_relasi &P);
+void printInfo_R(List_relasi R);
+void createList_relasi(List_relasi &R);
+void insertFirst(List_relasi &R, address_relasi P);
+void insertLast(List_relasi &R, address_relasi P);
+void insertAfter(List_relasi R, address_relasi &Prec, address_relasi &P);
+void deleteFirst(List_relasi &R, address_relasi &P);
+void deleteLast(List_relasi &R, address_relasi&P);
+void deleteAfter(address_relasi Prec, address_relasi &P);
+address_relasi searchrelasi(List_relasi R, address_mhs Q, address_mtkl Z);
+address_relasi searchrelasiparent(List_relasi R, address_mhs &P);
+address_relasi searchrelasichild(List_relasi R, address_mtkl P);
+void sortrelasi(List_relasi &R);
+address_relasi findMinimum(List_relasi &R);
 
 #endif // RELASI_H_INCLUDED
