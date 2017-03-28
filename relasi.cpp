@@ -1,102 +1,103 @@
-
 #include <iostream>
 #include "relasi.h"
 #include "mahasiswa.h"
 #include "matkul.h"
 using namespace std;
 
-void createList_relasi(List_relasi &R)
+void createList_relasi
+
+(List_relasi &R)
 {
-    L.First=NULL;
+    R.FirstR=NULL;
 }
 
-address_relasi alokasiRelasi(relasi x)
+address_relasi alokasiRelasi
+
+(address_mhs P, address_mtkl L)
 {
-    addrss_relasi R = new elm_relasi;
-    R->info=x;
-    R->next= NULL;
-    return R;
+    address_relasi Q = new
+
+elm_relasi;
+    Q->child = L;
+    Q->parent = P;
+    Q->next = NULL;
+    return Q;
+}
+void dealokasi(address_relasi &P)
+{
+    delete P;
 }
 
-void isiRelasi(List_relasi R, List_mhs L, List_mtkl LC, relasi &r)
+void insertFirst(List_relasi &R, address_relasi P)
 {
-    string mhs,mtkl;
-    address_mhs mhs;
-    address_mtkl mtkl;
-
-    printInfo_mhs(L);
-    cout<<endl;
-    cout<<endl;
-    printInfo(LC);
-
-    cout<<"RELASIKAN DATA "<<endl;
-    cout<<"NIM Mahasiswa    = ";cin>>nim;
-    cout<<"direlasikan dengan...."<<endl;
-    mhs = findElm_mhs(L,nim);
-    if(mhs!=NULL) {
-        cout<<"Kode Matakuliah  = ";cin>>kode;
-        mtkl = findElm(LC,kode);
-        if(mtkl!=NULL) {
-            relasi.mhs = mhs;
-            relasi.mtkl = mtkl;
-            cout<<"DATA TERSIMPAN!!!"<<endl;
-        }
-        else {
-            cout<<"KODE MATAKULIAH TIDAK ADA!!"<<endl;
-        }
-
-    }
-    else {
-        cout<<"KODE MAHASISWA TIDAK ADA!!"<<endl;
-
-    }
-}
-
-void insertFirst_relasi(List_relasi &R, address_relasi P)
-{
-    if(L.FirstR==NULL){
-        L.FirstR = P;
-    }
-    else {
-        nextR = L.FirstR;
-        L.FirstR = P;
-    }
-}
-void insertLast_relasi(List_relasi &R, address_relasi P)
-{
-    if(L.FirstR==NULL){
-        insertFirst_relasi(L,P);
-    }else{
-        address_relasi Q = L.FirstR;
-        while(Q->nextR!=NULL){
-            Q = Q->nextR;
-        }
-        Q->nextR = P;
-    }
-}
-
-void insertAfter_relasi(List_relasi &R, address_relasi prec, address_relasi P)
-{
-    if(L.FirstR!=NULL)
+    if (R.FirstR == NULL)
     {
-        P->nextR = prec->nextR;
-        prec->nextR = P;
-    }else{
-        insertFirst_relasi(R,P);
+        R.FirstR = P;
+        P->next = NULL;
+    }
+    else
+    {
+
+        P->next = R.FirstR;
+        R.FirstR = P;
+    }
+}
+void insertLast(List_relasi &R, address_relasi P)
+{
+    if (R.FirstR == NULL)
+    {
+        insertFirst(R,P);
+    }
+    else
+    {
+        address_relasi Q = R.FirstR;
+        while (Q->next != NULL)
+        {
+            Q = Q->next;
+        }
+        Q->next = P;
+        P->next = NULL;
+
     }
 }
 
-address_relasi findElmRelasi(address_relasi R, address_mhs mhs, address_mtkl mtkl)
-{
+void insertAfter(List_relasi R, address_relasi &Prec,
 
+address_relasi &P)
+{
+    if(R.FirstR == NULL){
+        insertFirst(R,P);
+    }else{
+        next(P) = next(Prec);
+        next(Prec) = P;
+    }
 }
 
-void printInfoRelasi(List_relasi R, address_mhs mhs, address_mtkl mtkl)
-{
+address_relasi findElm_R(List_relasi R, address_mhs P, address_mtkl
 
+C)
+{
+    address_relasi Q = R.FirstR;
+    while(Q != NULL)
+    {
+        if(Q->parent==P && Q->child== C)
+        {
+            return Q;
+        }
+        Q = Q->next;
+    }
+    return NULL;
 }
 
-void deleteRelasi(address_mhs P, address_mtkl L)
-{
+void deletebyrelasi(List_relasi &R, address_relasi &P);
+void deleterelasi(List_relasi &R, address_relasi &P);
+void printInfo(List_relasi R);
+void deleteFirst(List_relasi &R, address_relasi &P);
+void deleteLast(List_relasi &R, address_relasi&P);
+void deleteAfter(address_relasi Prec, address_relasi &P);
+address_relasi searchrelasi(List_relasi R, address_mhs Q,
 
-}
+address_mtkl Z);
+address_relasi searchrelasiparent(List_relasi R, address_mhs &P);
+address_relasi searchrelasichild(List_relasi R, address_mtkl P);
+void sortrelasi(List_relasi &R);
