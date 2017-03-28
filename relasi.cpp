@@ -269,5 +269,26 @@ address_relasi searchrelasichild(List_relasi R, address_mtkl P)
 }
 void sortrelasi(List_relasi &R)
 {
-
+    address_relasi P,P1,P2;
+    if(R.FirstR != NULL)
+    {
+        P = R.FirstR;
+        while (P->next != NULL)
+        {
+            if(P->info->parent.id > P->info->next->parent.id)
+            {
+                P2 = R.FirstR;
+                while(P2->next != P){
+                    P2 = P2->next;
+                }
+                deleteAfter(P2,P);
+                insertAfter(L,P->next,P);
+            }
+            P = P->next;
+        }
+    }
+    else
+    {
+        cout<<"List Relasi Kosong"<<endl;
+    }
 }
