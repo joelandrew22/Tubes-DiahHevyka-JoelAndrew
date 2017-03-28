@@ -30,8 +30,8 @@ void dealokasi(address_relasi &P)
 
 void deleterelasi(List_relasi &R, address_relasi &P)
 {
-    child(P) = nil;
-    parent(P) = nil;
+    P->child = NULL;
+    P->parent = NULL;
     dealokasi(P);
 }
 
@@ -111,14 +111,14 @@ void deletebyrelasi(List_relasi &R, address_relasi &P)
             while(Q->next != P)
                 Q = Q->next;
         }
-        if(Q->next == P && P->next == nil)
+        if(Q->next == P && P->next == NULL)
         {
             deleteLast(L,P);
         }
         else
         {
             Q->next = P->next;
-            P->next = nil;
+            P->next = NULL;
         }
     }
     else
@@ -195,15 +195,77 @@ void deleteAfter(address_relasi Prec, address_relasi &P)
 }
 address_relasi searchrelasi(List_relasi R, address_mhs Q,address_mtkl Z)
 {
-
+    if(R.FirstR != NULL)
+    {
+        address_relasi P = R.FirstR;
+        while (P->next != NULL)
+        {
+            if(P->parent != Q && P->child != Z)
+            {
+                P = P->next;
+            }
+        }
+        if(P->child == Z && P->parent == Q)
+        {
+            return P;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    else
+    {
+        return NULL;
+        cout<<"List Kosong"<<endl;
+    }
 }
 address_relasi searchrelasiparent(List_relasi R, address_mhs &P)
 {
-
+    if(R.FirstR != NULL)
+    {
+        address_relasi PR = R.FirstR;
+        while(PR->next != NULL && PR->parent != P)
+        {
+            PR = PR->next;
+        }
+        if (PR->parent == P)
+        {
+            return PR;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
+        return NULL;
+    }
 }
 address_relasi searchrelasichild(List_relasi R, address_mtkl P)
 {
-
+    if(R.FirstR != NULL)
+    {
+        address_relasi PR = R.FirstR;
+        while(PR->next != NULL && PR->child != P)
+        {
+            PR = PR->next;
+        }
+        if (PR->child == P)
+        {
+            return PR;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+    else
+    {
+        return NULL;
+    }
 }
 void sortrelasi(List_relasi &R)
 {
